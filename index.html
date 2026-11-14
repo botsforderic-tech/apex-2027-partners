@@ -705,8 +705,18 @@ footer .logo{font-family:var(--cond);font-weight:800;font-size:26px;color:var(--
 </footer>
 
 <script>
+// Visit log: paste the Google Apps Script web app URL here to record who views the page.
+const LOG_URL = '';
+const logVisit = email => {
+  if (!LOG_URL) return;
+  try {
+    const q = new URLSearchParams(location.search);
+    fetch(LOG_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ email, to: q.get('to') || '', page: location.host + location.pathname, ref: document.referrer, ua: navigator.userAgent, tz: Intl.DateTimeFormat().resolvedOptions().timeZone }) });
+  } catch (e) {}
+};
 // Gate (demo passcode). Replace with server side auth when hosted.
-const PASS_HASH = '627d343cf4974e5731bca30b597312ce03258f8ccacb3b688c6852f90e67ed62'; // SHA-256 of the passcode (uppercase)
+const PASS_HASH = 'b381f7074d5b1536e2ebb58f0605b3b7cf4b44da7ec1b7e30e70f151e398357f'; // SHA-256 of the passcode (uppercase)
 const sha = async t => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)))].map(b => b.toString(16).padStart(2, '0')).join('');
 const gate = document.getElementById('gate');
 let unlocked = false;
@@ -716,6 +726,7 @@ document.getElementById('gateForm').addEventListener('submit', async e => {
   e.preventDefault();
   if (await sha(document.getElementById('gCode').value.trim().toUpperCase()) === PASS_HASH) {
     try { sessionStorage.setItem('apexGate', '1'); } catch (e) {}
+    logVisit(document.getElementById('gEmail').value.trim());
     gate.classList.add('hide'); document.body.style.overflow = '';
     document.querySelectorAll('video').forEach(v => v.play && v.play().catch(() => {}));
   } else {
