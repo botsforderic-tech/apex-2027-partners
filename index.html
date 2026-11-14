@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>APEX 2027 Partner Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;700;800&family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070a; --bg2:#101014; --card:#15151b; --card2:#121217; --line:#25252d; --line2:#22222a; --line3:#3a3a44;
+  --text:#f5f5f2; --muted:#a2a2ab; --dim:#8e8e98; --lead:#d9d9de; --soft:#dcdce2; --ink:#0b0b10;
+  --speed:#c4f73a; --power:#8b6bff; --strength:#ff4a2a; --endurance:#3b7bff;
+  --grad:linear-gradient(90deg,#ff4f7b,#a35cff,#2f8cff,#14d9b0,#c4f73a,#ffb020,#ff4f7b);
+  --grad-deep:linear-gradient(90deg,#e8195a,#7a3cf5,#1466ea,#00a884,#6aa300,#e07b00,#e8195a);
+  --cond:'Saira Condensed',system-ui,sans-serif; --body:'Saira',system-ui,sans-serif;
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+section{padding:clamp(72px,10vw,140px) 0;position:relative}
+.light{--bg:#f6f6f3;--bg2:#ecebe6;--card:#ffffff;--card2:#ffffff;--line:#dedcd5;--line2:#e9e7e1;--line3:#c9c7bf;--text:#0d0d12;--muted:#5d5d66;--dim:#6f6f78;--lead:#33333b;--soft:#24242b;background:var(--bg);color:var(--text)}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--cond);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:13px;color:var(--muted);margin-bottom:22px}
+.eyebrow::before{content:"";width:34px;height:4px;border-radius:2px;background:var(--grad);background-size:200% 100%;animation:gshift 6s linear infinite}
+h1,h2,h3{font-family:var(--cond);font-weight:800;text-transform:uppercase;line-height:.92}
+h2{font-size:clamp(44px,6.4vw,92px)}
+h3{font-size:clamp(24px,2.4vw,32px);line-height:1}
+.lead{font-size:clamp(17px,1.4vw,20px);color:var(--lead);max-width:660px;margin-top:24px}
+.muted{color:var(--muted)}
+.g,.stat .num,.big .num{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift 6s linear infinite}
+.light .g,.light .big .num{background-image:var(--grad-deep)}
+@keyframes gshift{from{background-position:0% 50%}to{background-position:200% 50%}}
+.gmove{background:var(--grad);background-size:200% 100%;animation:gshift 6s linear infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--grad);background-size:200% 100%;animation:gshift 6s linear infinite;color:var(--ink);font-family:var(--cond);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:17px;padding:16px 30px;border:0;border-radius:999px;cursor:pointer;text-decoration:none;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.note{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;max-width:920px}
+.pend{display:inline-block;margin-left:8px;font-family:var(--cond);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);padding:2px 8px;border-radius:99px;vertical-align:1px}
+
+/* gate */
+#gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#0c0c0b url(media/crowd.webp) center/cover;transition:opacity .6s}
+#gate::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,10,.5),rgba(7,7,10,.92))}
+#gate.hide{opacity:0;pointer-events:none}
+.gate-box{position:relative;width:min(440px,90vw);text-align:center}
+.gate-box .logo{font-family:var(--cond);font-weight:800;font-size:64px;letter-spacing:.06em;line-height:1}
+.gate-box p{color:#d0d0d6;margin:14px 0 28px}
+.gate-box input{width:100%;background:rgba(255,255,255,.07);border:1px solid #4a4a54;color:var(--text);padding:15px 16px;font:inherit;margin-bottom:12px;border-radius:10px}
+.gate-box input:focus{outline:none;border-color:#a35cff}
+.gate-box .btn{width:100%;justify-content:center}
+.gate-err{color:#ff8a7a;font-size:14px;min-height:22px;margin-top:10px}
+
+/* bar + hero */
+.gbar{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px var(--pad);color:var(--ink);font-family:var(--cond);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(14px,1.4vw,19px)}
+.gbar a{background:var(--ink);color:#fff;text-decoration:none;padding:8px 18px;border-radius:999px;font-size:14px;letter-spacing:.08em;white-space:nowrap}
+@media (max-width:700px){.gbar span{display:none}.gbar{justify-content:center}}
+.hero{position:relative;min-height:100svh;padding:0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);background:#050507;overflow:hidden}
+.hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:120px var(--pad) 90px}
+.hero-top{position:absolute;top:28px;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;align-items:center;font-family:var(--cond);font-weight:700;letter-spacing:.2em;font-size:13px;text-transform:uppercase;color:var(--muted)}
+.hero-top .logo{font-size:30px;letter-spacing:.06em;color:var(--text);font-weight:800}
+.hero h1{font-size:clamp(64px,8.4vw,150px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.chip{font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--ink);padding:6px 14px;border-radius:99px}
+.scroll-cue{margin-top:48px;font-family:var(--cond);letter-spacing:.24em;text-transform:uppercase;font-size:12px;color:var(--muted)}
+.hero-video{position:relative}
+.hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-video::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#050507 0%,rgba(5,5,7,0) 28%),linear-gradient(0deg,rgba(5,5,7,.6),rgba(5,5,7,0) 35%)}
+@media (max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .hero-top span:last-child{display:none}
+  .hero h1{font-size:clamp(52px,15vw,96px)}
+  .hero-video{position:absolute;inset:0}
+  .hero-video::after{background:linear-gradient(0deg,rgba(5,5,7,.95) 10%,rgba(5,5,7,.35) 60%,rgba(5,5,7,.55))}
+  .hero-copy{justify-content:flex-end}
+}
+.marquee{overflow:hidden;padding:18px 0;color:var(--ink)}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:mq 38s linear infinite;font-family:var(--cond);font-weight:800;font-size:28px;text-transform:uppercase;letter-spacing:.04em}
+.marquee-track i{font-style:normal;opacity:.35}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* layouts */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,90px);align-items:center}
+.split img.ph{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.cols3,.cols4{display:grid;gap:28px;margin-top:48px}
+.cols3{grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);padding-top:28px}
+.cols4{grid-template-columns:repeat(4,1fr);margin-top:56px}
+.cols3 h4,.cols4 h4{font-family:var(--cond);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:14px;margin-bottom:8px}
+.cols3 p,.cols4 p{color:var(--muted);font-size:15px}
+.cols4>div{border-top:3px solid;border-image:var(--grad-deep) 1;padding-top:18px}
+@media (max-width:900px){.cols3,.cols4{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cols3,.cols4{grid-template-columns:1fr}}
+.bleed{position:relative;height:clamp(360px,70vh,720px);overflow:hidden}
+.bleed img{width:100%;height:100%;object-fit:cover}
+.bleed figcaption{position:absolute;left:var(--pad);bottom:24px;font-style:italic;color:#fff;font-size:15px;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+
+/* categories strip */
+.cats{background:#030305;padding:64px 0}
+.cats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.cat img{height:64px;width:auto;margin:0 auto 18px}
+.cat b{display:block;font-family:var(--cond);font-weight:800;letter-spacing:.2em;font-size:20px}
+.cat span{color:#a2a2ab;font-size:16px}
+.cat.speed b{color:var(--speed)}.cat.power b{color:#9b84ff}.cat.strength b{color:#ff5a3a}.cat.endurance b{color:#6f9bff}
+@media (max-width:700px){.cats .wrap{grid-template-columns:1fr 1fr;row-gap:40px}}
+
+/* scale */
+.scale{background:#050507;overflow:hidden}
+.scale::before{content:"";position:absolute;inset:0;background:url(media/celebrate.webp) center/cover;opacity:.16;filter:grayscale(1)}
+.scale .wrap{position:relative}
+.sc-row{display:grid;grid-template-columns:repeat(3,1fr) 220px repeat(3,1fr);gap:12px;text-align:center;align-items:end}
+.sc-row.bot{align-items:start;margin-top:0}
+.sc-item b{display:block;font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:clamp(17px,1.6vw,22px);line-height:1.05}
+.sc-item span{display:block;color:#b4b4bc;font-size:14px;margin-top:4px;line-height:1.35}
+.sc-item::after{content:"";display:block;width:1px;height:28px;background:#55555f;margin:14px auto 0}
+.sc-row.bot .sc-item::after{display:none}
+.sc-row.bot .sc-item::before{content:"";display:block;width:1px;height:28px;background:#55555f;margin:0 auto 14px}
+.sc-gauge{grid-column:4;grid-row:1}
+.sc-gauge svg{width:100%;height:auto;display:block}
+.sc-bar{position:relative;display:flex;justify-content:space-between;align-items:center;margin:10px 0;padding:18px clamp(20px,3vw,44px);border-radius:999px;font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:clamp(20px,2.5vw,36px);color:#fff;letter-spacing:.02em}
+.sc-pill{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:var(--ink);border-radius:999px;padding:10px 24px;text-align:center;box-shadow:0 0 0 6px rgba(255,255,255,.18);white-space:nowrap}
+.sc-pill b{display:block;font-size:clamp(18px,2vw,28px);line-height:1}
+.sc-pill small{display:block;font-size:12px;letter-spacing:.24em;color:#a3207a;margin-top:2px}
+.sc-big{text-align:center;font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:clamp(56px,10vw,150px);line-height:.9;margin-top:70px}
+.sc-sub{text-align:center;color:#d4d4da;font-size:clamp(16px,1.4vw,20px);margin-top:16px}
+@media (max-width:900px){
+  .sc-row{grid-template-columns:1fr 1fr;row-gap:24px}
+  .sc-gauge{grid-column:1/-1;grid-row:auto;max-width:240px;margin:0 auto}
+  .sc-item::after,.sc-row.bot .sc-item::before{display:none}
+  .sc-bar{flex-wrap:wrap;font-size:20px;padding:14px 20px 16px;border-radius:26px}
+  .sc-pill{position:static;transform:none;order:-1;width:100%;margin-bottom:12px}
+  .sc-bar>span{flex:1}.sc-bar>span:last-child{text-align:right}
+  .sc-big{font-size:12.5vw}
+}
+
+/* demographics */
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:52px}
+.dcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 36px}
+.dcard h3{font-size:clamp(26px,2.6vw,36px);margin-bottom:22px}
+.gender{display:grid;grid-template-columns:72fr 28fr;gap:10px;margin-bottom:26px}
+.gender div{border-radius:16px;padding:22px 16px;text-align:center;color:#fff}
+.gender .men{background:linear-gradient(135deg,#2f8cff,#14d9b0)}
+.gender .women{background:linear-gradient(135deg,#ff4f7b,#a35cff)}
+.gender b{display:block;font-family:var(--cond);font-weight:800;font-size:clamp(38px,4vw,58px);line-height:1}
+.gender small{font-family:var(--cond);font-weight:700;letter-spacing:.2em;font-size:12px}
+.bars .br{display:grid;grid-template-columns:110px 1fr 90px;align-items:center;gap:16px;padding:9px 0}
+.bars .lb{font-family:var(--cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:15px;color:var(--muted)}
+.bars .tr{height:10px;border-radius:99px;background:#e2e1dc;overflow:hidden}
+.bars .fl{height:100%;width:0;border-radius:99px;background:var(--grad-deep);background-size:250% 100%;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.in .bars .fl{width:var(--w)}
+.bars .pc{font-family:var(--cond);font-weight:800;font-size:clamp(26px,2.4vw,36px);text-align:right;line-height:1}
+.dnote{margin-top:16px;color:var(--muted);font-size:15px}
+.dnote b{color:var(--text)}
+.big4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px}
+.big{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px 28px 34px}
+.big::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--grad);background-size:200% 100%;animation:gshift 6s linear infinite}
+.big .num{font-family:var(--cond);font-weight:800;font-size:clamp(48px,5vw,76px);line-height:.9}
+.big .k{font-family:var(--cond);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:13px;margin-top:14px}
+.big p{color:var(--muted);font-size:14px;margin-top:6px}
+.up{display:inline-block;margin-top:10px;font-family:var(--cond);font-weight:800;font-size:13px;letter-spacing:.1em;color:#0a7a52;background:#d9f7ea;border-radius:99px;padding:3px 10px}
+@media (max-width:900px){.demo-grid,.big4{grid-template-columns:1fr}.bars .br{grid-template-columns:90px 1fr 70px}}
+
+/* stats band */
+.stats-band{position:relative;background:url(media/crowd.webp) center 30%/cover}
+.stats-band::before{content:"";position:absolute;inset:0;background:rgba(5,5,7,.82)}
+.stats-band .wrap{position:relative}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 32px;margin-top:56px}
+.stat .num{font-family:var(--cond);font-weight:800;font-size:clamp(64px,8vw,120px);line-height:.9}
+.stat .lbl{color:#e2e2e6;margin-top:8px;max-width:280px}
+.fomo{margin-top:64px;display:grid;grid-template-columns:1fr 1.3fr;gap:32px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:32px 36px;backdrop-filter:blur(6px)}
+.fomo h3{font-size:clamp(30px,3.2vw,46px)}
+.fomo p{color:#d0d0d6;margin-top:10px}
+.wl .r{display:grid;grid-template-columns:90px 1fr 120px;gap:14px;align-items:center;padding:8px 0;font-size:15px}
+.wl .r span:first-child{font-family:var(--cond);font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.wl .t{height:12px;border-radius:99px;background:rgba(255,255,255,.12);display:flex;overflow:hidden}
+.wl .t i{display:block;height:100%;background:#f5f5f2}
+.wl .t em{display:block;height:100%;background:var(--grad);background-size:300% 100%;animation:gshift 6s linear infinite}
+.wl .r span:last-child{color:#cfcfd6;text-align:right;font-size:14px}
+.wl .key{display:flex;gap:18px;font-size:13px;color:#b8b8c0;margin-top:10px}
+.wl .key i{display:inline-block;width:12px;height:12px;border-radius:3px;background:#f5f5f2;margin-right:6px;vertical-align:-1px}
+.wl .key i.g2{background:var(--grad)}
+@media (max-width:800px){.stat-grid{grid-template-columns:1fr 1fr}.fomo{grid-template-columns:1fr}}
+
+/* cities */
+.season-sec{background:#050507}
+.cities{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
+.city{position:relative;overflow:hidden;border-radius:20px;min-height:300px;background:#09090c;border:1px solid #23232b;transition:transform .35s,border-color .35s;isolation:isolate}
+.city:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--c1) 70%,#000)}
+.city .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(1.15) contrast(1.05);transition:transform 1.2s cubic-bezier(.2,.8,.2,1);z-index:0}
+.city:hover .bg{transform:scale(1.06)}
+.city .tint{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,var(--c1),var(--c2));mix-blend-mode:color;opacity:.7}
+.city::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,7,10,.86) 0%,rgba(7,7,10,.45) 48%,rgba(7,7,10,.05) 75%,rgba(7,7,10,.35) 100%)}
+.ct{position:relative;z-index:2;padding:22px 24px;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.ct .m{font-family:var(--cond);font-weight:700;letter-spacing:.16em;font-size:13px;color:var(--c1);filter:brightness(1.25)}
+.ct .c{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:clamp(28px,2.8vw,40px);line-height:1;margin:8px 0 6px}
+.ct .d{font-family:var(--cond);font-weight:700;font-size:17px}
+.ct .s{color:#d5d5dc;font-size:14px}
+.city.champ{border:0}
+.city.champ .tint{background:var(--grad);background-size:200% 100%;animation:gshift 6s linear infinite;opacity:.55}
+.city.champ::before{content:"";position:absolute;inset:0;border-radius:20px;padding:2px;background:var(--grad);background-size:200% 100%;animation:gshift 6s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:3;pointer-events:none}
+.city.champ .m{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift 6s linear infinite;filter:none}
+@media (max-width:900px){.cities{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cities{grid-template-columns:1fr}}
+
+/* season long */
+.steps{margin-top:40px}
+.step{display:grid;grid-template-columns:70px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--line)}
+.step .n{font-family:var(--cond);font-weight:800;font-size:40px;line-height:1}
+.step h4{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:22px;letter-spacing:.04em}
+.step h4 em{font-style:normal;color:var(--muted);font-weight:600;font-size:16px;letter-spacing:.12em;margin-left:8px}
+.step p{color:var(--muted);margin-top:4px}
+.r365{display:flex;align-items:baseline;gap:14px;margin-top:30px}
+.r365 b{font-family:var(--cond);font-weight:800;font-size:clamp(80px,9vw,140px);line-height:.85}
+.r365 span{font-family:var(--cond);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-size:15px;max-width:220px}
+
+/* app */
+.app-sec{background:#050507;overflow:hidden}
+.app-sec::before{content:"";position:absolute;width:900px;height:900px;right:-200px;top:-200px;background:radial-gradient(circle,rgba(255,74,42,.22),transparent 60%);pointer-events:none}
+.phones{display:flex;gap:22px;justify-content:center;align-items:flex-start}
+.phone{width:min(280px,42vw);border-radius:42px;padding:10px;background:linear-gradient(160deg,#2b2b33,#0e0e12);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px #34343d inset}
+.phone>*{width:100%;border-radius:33px;display:block;aspect-ratio:1320/2718;object-fit:cover;object-position:top}
+.phone.two{margin-top:70px}
+.phone.two>*{aspect-ratio:9/18.4}
+.app-list{list-style:none;margin-top:28px}
+.app-list li{position:relative;padding:14px 0 14px 30px;border-top:1px solid var(--line);color:var(--soft)}
+.app-list li::before{content:"";position:absolute;left:0;top:21px;width:12px;height:12px;border-radius:50%;background:#ff4a2a;box-shadow:0 0 14px #ff4a2a}
+.app-list b{color:var(--text)}
+
+/* tiers */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.tier{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column}
+.tier.top::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--grad);background-size:200% 100%;animation:gshift 6s linear infinite}
+.tier .t{font-family:var(--cond);font-weight:700;letter-spacing:.2em;font-size:13px;color:var(--muted)}
+.tier h3{margin:10px 0 18px}
+.tier .price{font-family:var(--cond);font-weight:800;font-size:46px;line-height:1}
+.tier .per{color:var(--muted);font-size:14px;margin:6px 0 22px}
+.tier ul{list-style:none;border-top:1px solid var(--line);padding-top:18px}
+.tier li{padding:6px 0 6px 20px;position:relative;color:var(--soft);font-size:15px}
+.tier li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:8px;border-radius:50%;background:var(--grad);background-size:400% 100%}
+.tier .go{margin-top:auto;padding-top:22px;font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;text-decoration:none;color:var(--muted)}
+.tier .go:hover{color:var(--text)}
+@media (max-width:900px){.tiers{grid-template-columns:1fr}}
+
+/* logistics */
+.limebox{background:var(--grad);background-size:200% 100%;animation:gshift 10s linear infinite;color:var(--ink)}
+.limebox .eyebrow{color:#16161c}.limebox .eyebrow::before{background:#111;animation:none}
+.limebox .lead{color:#1b1b22}
+.limebox .soft{color:rgba(11,11,16,.6)}
+.logi{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:40px}
+.logi>div{border-top:2px solid #111;padding:18px 0 26px}
+.logi h4{font-family:var(--cond);font-weight:800;font-size:22px;text-transform:uppercase}
+.logi p{color:#1f1f27;font-size:15px;margin-top:4px}
+.limebox img.ph{border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+@media (max-width:600px){.logi{grid-template-columns:1fr}}
+
+/* tier detail heads */
+.thead{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.pricehead{font-family:var(--cond);font-weight:800;font-size:clamp(36px,4vw,56px);line-height:1;margin-top:18px}
+.defn{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 28px;color:var(--soft)}
+.defn b{display:block;font-family:var(--cond);letter-spacing:.18em;text-transform:uppercase;font-size:13px;color:var(--muted);margin-bottom:8px}
+@media (max-width:900px){.thead{grid-template-columns:1fr}}
+
+/* accordion */
+.acc-list{margin-top:44px;border-top:1px solid var(--line)}
+.acc-list details{border-bottom:1px solid var(--line)}
+.acc-list summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:54px 1fr auto 34px;align-items:center;gap:16px;padding:24px 4px;transition:background .2s}
+.acc-list summary::-webkit-details-marker{display:none}
+.acc-list summary:hover{background:rgba(128,128,140,.07)}
+.acc-list .an{font-family:var(--cond);font-weight:700;color:var(--dim);font-size:16px;letter-spacing:.1em}
+.acc-list .at{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.2vw,30px);line-height:1}
+.acc-list .as{display:block;font-family:var(--body);font-weight:400;text-transform:none;font-size:15px;color:var(--muted);margin-top:6px}
+.acc-list .ac{font-family:var(--cond);font-weight:700;font-size:13px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;white-space:nowrap}
+.acc-list .ai{width:34px;height:34px;border:1px solid var(--line3);border-radius:50%;position:relative;transition:transform .3s}
+.acc-list .ai::before,.acc-list .ai::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--text);transform:translate(-50%,-50%)}
+.acc-list .ai::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .3s}
+.acc-list details[open] .ai{border-color:transparent;background:var(--grad);background-size:200% 100%;animation:gshift 6s linear infinite}
+.acc-list details[open] .ai::before,.acc-list details[open] .ai::after{background:var(--ink)}
+.acc-list details[open] .ai::after{transform:translate(-50%,-50%) rotate(0)}
+.acc-body{padding:4px 4px 30px 70px;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.ent{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+.ent>div{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:14px 0;border-top:1px solid var(--line2)}
+.ent .q{grid-row:span 2;min-width:62px;font-family:var(--cond);font-weight:800;font-size:26px;line-height:1;background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.light .ent .q{background-image:var(--grad-deep)}
+.ent .q small{display:block;font-size:11px;letter-spacing:.14em;font-weight:700;margin-top:4px}
+.ent b{font-weight:600;font-size:16px}
+.ent span{color:var(--muted);font-size:14px}
+@media (max-width:800px){
+  .acc-list summary{grid-template-columns:36px 1fr 34px}.acc-list .ac{display:none}
+  .acc-body{padding-left:4px}.ent{grid-template-columns:1fr}
+}
+
+/* assets */
+.assets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+.asset{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 24px 26px;transition:transform .3s,box-shadow .3s}
+.asset:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.asset::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--ac)}
+.a-exp{--ac:var(--grad-deep)}.a-speed{--ac:#9ccc10}.a-power{--ac:#7a5cff}.a-strength{--ac:#ff4a2a}.a-endurance{--ac:#3b7bff}
+.asset .ah{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.asset .ah img{height:34px;width:auto;filter:saturate(1.3)}
+.expdot{width:34px;height:34px;border-radius:50%;background:var(--grad-deep)}
+.asset .tag{font-family:var(--cond);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--muted)}
+.asset .num{margin-left:auto;font-family:var(--cond);font-weight:700;color:var(--dim)}
+.asset h4{font-family:var(--cond);font-weight:800;text-transform:uppercase;font-size:clamp(26px,2.4vw,34px);line-height:1}
+.asset p{color:var(--muted);font-size:15px;margin-top:8px;min-height:46px}
+.asset .pb{margin-top:16px;display:inline-block;font-family:var(--cond);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px;padding:5px 12px;border-radius:99px;background:#0d0d12;color:#fff}
+@media (max-width:900px){.assets{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.assets{grid-template-columns:1fr}}
+
+/* cta + footer */
+.cta{position:relative;min-height:90vh;display:flex;align-items:flex-end;background:url(media/celebrate.webp) center 25%/cover}
+.cta::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,5,7,.96) 15%,rgba(5,5,7,.3))}
+.cta .wrap{position:relative;width:100%}
+.contact{margin-top:36px;display:flex;flex-wrap:wrap;gap:28px;align-items:center}
+.contact .who{font-size:15px;color:#e0e0e5}
+.contact .who b{display:block;font-family:var(--cond);letter-spacing:.18em;text-transform:uppercase;font-size:13px;color:var(--muted);margin-bottom:4px}
+footer{border-top:4px solid transparent;border-image:var(--grad) 1;padding:36px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+footer .logo{font-family:var(--cond);font-weight:800;font-size:26px;color:var(--text);letter-spacing:.06em}
+
+.credits{margin-top:10px;color:#6c6c76;font-size:11px;line-height:1.5;max-width:920px}
+
+</style>
+</head>
+<body>
+
+<div id="gate" role="dialog" aria-label="Enter partner overview">
+  <form class="gate-box" id="gateForm">
+    <div class="logo">APEX</div>
+    <p>2027 partner overview. Enter your email and the passcode we sent you.</p>
+    <input type="email" id="gEmail" placeholder="Email" required autocomplete="email">
+    <input type="password" id="gCode" placeholder="Passcode" required>
+    <button class="btn" type="submit">Enter</button>
+    <div class="gate-err" id="gErr"></div>
+  </form>
+</div>
+
+<div class="gbar gmove"><span>2027 season opens February 27 in Miami</span><a href="#ways">Ways to partner &rarr;</a></div>
+<header class="hero">
+  <div class="hero-copy">
+    <div class="hero-top"><span class="logo">APEX</span><span>Partner overview · 2027 season</span></div>
+    <div class="eyebrow">2027 Partnership Opportunities</div>
+    <h1>Athleticism<br>is the <span class="g">sport.</span></h1>
+    <p class="lead">The competition built to test the four categories of raw athleticism: Speed, Power, Strength and Endurance.</p>
+    <div class="chips"><span class="chip" style="background:var(--speed)">Speed</span><span class="chip" style="background:#9b84ff">Power</span><span class="chip" style="background:#ff5a3a;color:#fff">Strength</span><span class="chip" style="background:#5b8cff;color:#fff">Endurance</span></div>
+    <div class="scroll-cue">Keep scrolling</div>
+  </div>
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="auto" poster="media/hero-poster.jpg"><source src="media/hero.mp4" type="video/mp4"></video>
+  </div>
+</header>
+
+<div class="marquee gmove" aria-hidden="true"><div class="marquee-track"><span>Miami</span><i>/</i><span>Austin</span><i>/</i><span>Atlanta</span><i>/</i><span>DMV</span><i>/</i><span>Chicago</span><i>/</i><span>Boston</span><i>/</i><span>Los Angeles</span><i>/</i><span>Dallas</span><i>/</i><span>Championship</span><i>/</i><span>Miami</span><i>/</i><span>Austin</span><i>/</i><span>Atlanta</span><i>/</i><span>DMV</span><i>/</i><span>Chicago</span><i>/</i><span>Boston</span><i>/</i><span>Los Angeles</span><i>/</i><span>Dallas</span><i>/</i><span>Championship</span><i>/</i></div></div>
+
+<section class="light" id="what">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="eyebrow">What is APEX</div>
+      <h2>Seven events.<br>Four categories.<br><span class="g">One score.</span></h2>
+      <p class="lead">APEX measures raw athletic ability across seven events and turns it into one number: your APEX Score. Sprint faster, express more power, lift more, go longer, and your score climbs.</p>
+      <div class="cols3">
+        <div><h4>The format</h4><p>One day, combine style, on an outdoor track and field.</p></div>
+        <div><h4>The athletes</h4><p>Pro, Olympic and collegiate athletes beside hybrid athletes and weekend warriors.</p></div>
+        <div><h4>The category</h4><p>Not a fitness race or a workout. An athletic competition.</p></div>
+      </div>
+    </div>
+    <img class="ph reveal" src="media/deadlift-field.webp" alt="Athlete deadlifting on the APEX field">
+  </div>
+</section>
+
+<div class="cats">
+  <div class="wrap">
+    <div class="cat speed reveal"><img src="media/cat-speed.png" alt=""><b>SPEED</b><span>Fast 40</span></div>
+    <div class="cat power reveal"><img src="media/cat-power.png" alt=""><b>POWER</b><span>Toss · Vert · Broad</span></div>
+    <div class="cat strength reveal"><img src="media/cat-strength.png" alt=""><b>STRENGTH</b><span>Pull · Push</span></div>
+    <div class="cat endurance reveal"><img src="media/cat-endurance.png" alt=""><b>ENDURANCE</b><span>The Mile</span></div>
+  </div>
+</div>
+
+<section class="scale" id="where">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Where we sit</div>
+      <h2>Built for athletes.<br><span class="g">Open to everyone.</span></h2>
+      <p class="lead">Fitness racing is open to anyone but rarely builds an athlete. Elite sport builds real athletes but is closed to almost everyone. APEX is the one event that does both.</p>
+    </div>
+    <div class="reveal" style="margin-top:70px">
+      <div class="sc-row top">
+        <div class="sc-item"><b>Hybrid racing</b><span>Volume first, athleticism second</span></div>
+        <div class="sc-item"><b>Workout comps</b><span>Fitness tests, not athletic ones</span></div>
+        <div class="sc-item"><b>Short shelf life</b><span>Hard to sustain season after season</span></div>
+        <div class="sc-gauge">
+          <svg viewBox="0 0 220 130" aria-hidden="true">
+            <defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#2f8cff"/><stop offset=".35" stop-color="#a35cff"/><stop offset=".65" stop-color="#ff4f7b"/><stop offset="1" stop-color="#ffb020"/></linearGradient></defs>
+            <path d="M20,120 A90,90 0 0 1 200,120" fill="none" stroke="url(#gg)" stroke-width="9" stroke-linecap="round"/>
+            <g stroke="#fff" stroke-opacity=".55" stroke-width="2">
+              <line x1="34" y1="70" x2="44" y2="76"/><line x1="58" y1="44" x2="65" y2="53"/><line x1="86" y1="30" x2="89" y2="41"/><line x1="134" y1="30" x2="131" y2="41"/><line x1="162" y1="44" x2="155" y2="53"/><line x1="186" y1="70" x2="176" y2="76"/>
+            </g>
+            <line x1="110" y1="120" x2="124" y2="38" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="110" cy="120" r="9" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="sc-item"><b>Pro combines</b><span>Invite only</span></div>
+        <div class="sc-item"><b>College athletics</b><span>A window that closes</span></div>
+        <div class="sc-item"><b>Olympic sport</b><span>The top fraction of a percent</span></div>
+      </div>
+      <div class="sc-bar gmove"><span>Fitness racing</span><div class="sc-pill"><b>APEX LIVES HERE</b><small>EARNED · OPEN</small></div><span>Elite sport</span></div>
+      <div class="sc-row bot">
+        <div class="sc-item"><b>Open registration</b><span>Every level on the same field</span></div>
+        <div class="sc-item"><b>Open and Elite</b><span>Plus age divisions for everyone</span></div>
+        <div class="sc-item"><b>Train all year</b><span>Programs in the APEX app</span></div>
+        <div></div>
+        <div class="sc-item"><b>Earned skills</b><span>Speed, power, strength, endurance</span></div>
+        <div class="sc-item"><b>One score</b><span>Measured like the pros</span></div>
+        <div class="sc-item"><b>Longevity</b><span>Athleticism you keep for life</span></div>
+      </div>
+    </div>
+    <div class="sc-big g reveal">Athleticism for all.</div>
+    <p class="sc-sub reveal">Skills that have to be earned, on a start line anyone can step up to.</p>
+  </div>
+</section>
+
+<section class="light" id="why">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Why APEX</div>
+      <h2>Finally, something<br>to <span class="g">train for.</span></h2>
+      <p class="lead">Until now the only way to compete was a fitness competition. There was nothing for the athletes. We didn't invent athleticism. We built a way to measure it, train it and compete on it.</p>
+    </div>
+    <div class="cols4 reveal">
+      <div><h4>Athletes</h4><p>Current and former pro, Olympic and collegiate competitors.</p></div>
+      <div><h4>Coaches</h4><p>S&amp;C coaches and gym owners always looking for an edge.</p></div>
+      <div><h4>Creators</h4><p>Fitness and sports voices with real social reach.</p></div>
+      <div><h4>Buyers</h4><p>Ages 18 to 45 who invest in gear, nutrition and training.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="audience" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">The audience</div>
+      <h2>They train. They compete.<br><span class="g">They watch.</span></h2>
+      <p class="lead">A young, performance driven audience that is still being discovered. 76% of our views come from people who don't follow us yet.</p>
+    </div>
+    <div class="demo-grid">
+      <div class="dcard reveal">
+        <h3>Who they are</h3>
+        <div class="gender"><div class="men"><b>72%</b><small>MEN</small></div><div class="women"><b>28%</b><small>WOMEN</small></div></div>
+        <div class="bars">
+          <div class="br"><span class="lb">18 to 24</span><div class="tr"><div class="fl" style="--w:17.6%"></div></div><span class="pc">8.5%</span></div>
+          <div class="br"><span class="lb">25 to 34</span><div class="tr"><div class="fl" style="--w:100%"></div></div><span class="pc">48.2%</span></div>
+          <div class="br"><span class="lb">35 to 44</span><div class="tr"><div class="fl" style="--w:68.9%"></div></div><span class="pc">33.2%</span></div>
+          <div class="br"><span class="lb">45+</span><div class="tr"><div class="fl" style="--w:21%"></div></div><span class="pc">10.1%</span></div>
+        </div>
+        <p class="dnote"><b>81% are 25 to 44,</b> in their prime spending years.</p>
+      </div>
+      <div class="dcard reveal">
+        <h3>Where they are</h3>
+        <div class="bars">
+          <div class="br"><span class="lb">United States</span><div class="tr"><div class="fl" style="--w:100%"></div></div><span class="pc">63.3%</span></div>
+          <div class="br"><span class="lb">Canada</span><div class="tr"><div class="fl" style="--w:8.2%"></div></div><span class="pc">5.2%</span></div>
+          <div class="br"><span class="lb">UK</span><div class="tr"><div class="fl" style="--w:6.5%"></div></div><span class="pc">4.1%</span></div>
+          <div class="br"><span class="lb">Australia</span><div class="tr"><div class="fl" style="--w:4.6%"></div></div><span class="pc">2.9%</span></div>
+        </div>
+        <p class="dnote"><b>A national tour with a global following.</b> Every 2027 stop sits in a top US market, with the audience already reaching Canada, the UK and Australia.</p>
+      </div>
+    </div>
+    <div class="big4">
+      <div class="big reveal"><div class="num" data-count="12.8" data-dec="1" data-suf="M">12.8M</div><div class="k">Instagram views</div><p>In 90 days.</p></div>
+      <div class="big reveal"><div class="num" data-count="5.7" data-dec="1" data-suf="M">5.7M</div><div class="k">Views after Miami</div><p>In the 12 days after APEX Miami alone.</p></div>
+      <div class="big reveal"><div class="num" data-count="33" data-suf="K+">33K+</div><div class="k">Followers</div><p>Growing fast.</p><span class="up">+8.9K IN 90 DAYS</span></div>
+      <div class="big reveal"><div class="num" data-count="328.5" data-dec="1" data-suf="K">328.5K</div><div class="k">Interactions</div><p>Likes, comments, shares and saves in 90 days.</p></div>
+    </div>
+    <p class="note">Sources: APEX Instagram insights, 90 days to October 2026, and APEX competition data, 2026 season.</p>
+  </div>
+</section>
+
+<section class="stats-band" id="reach">
+  <div class="wrap">
+    <div class="eyebrow">The growth</div>
+    <h2>In 12 months,<br><span class="g">we tripled.</span></h2>
+    <div class="stat-grid">
+      <div class="stat reveal"><div class="num" data-count="300">300</div><div class="lbl">athletes per event, up from 80 at our first competition in Austin</div></div>
+      <div class="stat reveal"><div class="num" data-count="100" data-suf="+">100+</div><div class="lbl">athletes on the Miami waitlist</div></div>
+      <div class="stat reveal"><div class="num" data-count="300">300</div><div class="lbl">spectators on the field per competition</div></div>
+      <div class="stat reveal"><div class="num" data-count="4" data-suf="K">4K</div><div class="lbl">live leaderboard viewers per competition</div></div>
+      <div class="stat reveal"><div class="num" data-count="7" data-suf="M">7M</div><div class="lbl">social impressions per competition</div></div>
+      <div class="stat reveal"><div class="num" data-count="10" data-suf="K+">10K+</div><div class="lbl">owned email list</div></div>
+    </div>
+    <div class="fomo reveal">
+      <div>
+        <h3>Every 2026 stop <span class="g">filled up.</span></h3>
+        <p>Every city in our first national season ran a waitlist. Miami had more than 100 athletes waiting for a spot. Demand is ahead of supply, and 2027 adds four new markets.</p>
+      </div>
+      <div class="wl">
+        <div class="r"><span>Austin</span><div class="t"><i style="width:35%"></i><em style="width:24%"></em></div><span>122 + 86 waiting</span></div>
+        <div class="r"><span>Chicago</span><div class="t"><i style="width:34%"></i><em style="width:21%"></em></div><span>121 + 75 waiting</span></div>
+        <div class="r"><span>Boston</span><div class="t"><i style="width:39%"></i><em style="width:20%"></em></div><span>137 + 69 waiting</span></div>
+        <div class="r"><span>Miami</span><div class="t"><i style="width:71%"></i><em style="width:29%"></em></div><span>250 + 100 waiting</span></div>
+        <div class="key"><span><i></i>Athletes</span><span><i class="g2"></i>Waitlist</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="season-sec" id="season">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">2027 season</div>
+      <h2>Eight cities.<br><span class="g">One championship.</span></h2>
+      <p class="lead">Season partners show up at every stop. The top 10 from each city earn an invite to the Championship Invitational in Austin.</p>
+    </div>
+    <div class="cities reveal">
+<div class="city" style="--c1:#ff3d8b;--c2:#22d3ee"><div class="bg" style="background-image:url(media/city-miami.webp)"></div><div class="tint"></div><div class="ct"><div class="m">STOP 01</div><div class="c">Miami, FL</div><div class="d">February 27</div><div class="s">Season opener</div></div></div>
+<div class="city" style="--c1:#ff8a1f;--c2:#ff3d5a"><div class="bg" style="background-image:url(media/city-austin.webp)"></div><div class="tint"></div><div class="ct"><div class="m">STOP 02</div><div class="c">Austin, TX</div><div class="d">March 20</div><div class="s">Where it started</div></div></div>
+<div class="city" style="--c1:#ff4d4d;--c2:#ffc46b"><div class="bg" style="background-image:url(media/city-atlanta.webp)"></div><div class="tint"></div><div class="ct"><div class="m">STOP 03<span class="pend">Pending</span></div><div class="c">Atlanta, GA</div><div class="d">April</div><div class="s">New market</div></div></div>
+<div class="city" style="--c1:#9b6bff;--c2:#3b82f6"><div class="bg" style="background-image:url(media/city-dmv.webp)"></div><div class="tint"></div><div class="ct"><div class="m">STOP 04</div><div class="c">DMV</div><div class="d">May 29</div><div class="s">Baltimore · Under Armour Stadium</div></div></div>
+<div class="city" style="--c1:#2f8cff;--c2:#22e1d3"><div class="bg" style="background-image:url(media/city-chicago.webp)"></div><div class="tint"></div><div class="ct"><div class="m">STOP 05</div><div class="c">Chicago, IL</div><div class="d">June 25</div><div class="s">Returning</div></div></div>
+<div class="city" style="--c1:#14d9a0;--c2:#2f8cff"><div class="bg" style="background-image:url(media/city-boston.webp)"></div><div class="tint"></div><div class="ct"><div class="m">STOP 06</div><div class="c">Boston, MA</div><div class="d">July 24, 31 or August 7</div><div class="s">Returning</div></div></div>
+<div class="city" style="--c1:#ffb020;--c2:#ff3d8b"><div class="bg" style="background-image:url(media/city-la.webp)"></div><div class="tint"></div><div class="ct"><div class="m">STOP 07<span class="pend">Pending</span></div><div class="c">Los Angeles, CA</div><div class="d">August 21</div><div class="s">New market</div></div></div>
+<div class="city" style="--c1:#c4f73a;--c2:#14d9a0"><div class="bg" style="background-image:url(media/city-dallas.webp)"></div><div class="tint"></div><div class="ct"><div class="m">STOP 08<span class="pend">Pending</span></div><div class="c">Dallas, TX</div><div class="d">September 18</div><div class="s">New market</div></div></div>
+<div class="city champ" style="--c1:#ff4f7b;--c2:#c4f73a"><div class="bg" style="background-image:url(media/city-champ.webp)"></div><div class="tint"></div><div class="ct"><div class="m">CHAMPIONSHIP</div><div class="c">Austin, TX</div><div class="d">November 6 or 13</div><div class="s">Championship Invitational</div></div></div>
+    </div>
+    <p class="note">Stops marked pending are awaiting final confirmation. All dates confirmed by the end of November 2026.</p>
+    <p class="credits">Photos via Wikimedia Commons: Miami, Daniel Christensen (CC BY-SA 3.0) · Austin, Steve (CC BY-SA 2.0) · Atlanta, Joey Kyber (CC0) · Baltimore, Kathleen Conklin (CC BY 2.0) · Chicago, Daniel Schwen (CC BY-SA 4.0) · Boston, King of Hearts (CC BY-SA 4.0) · Los Angeles, Camiloarenivar (CC BY-SA 4.0) · Dallas, Shiva Shenoy (CC BY 2.0) · Texas State Capitol, Kumar Appaiah (CC BY-SA 2.0). Cropped and color tinted.</p>
+  </div>
+</section>
+
+<section id="partner" style="background:var(--bg2)">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="eyebrow">Why partner</div>
+      <h2>We're building<br><span class="g">season long partnerships.</span></h2>
+      <p class="lead">APEX is not a one day booth buy. Our partners are with us from the first training block to the Championship in November: in the app, on the field and in the feed.</p>
+      <div class="steps">
+        <div class="step"><div class="n g">01</div><div><h4>Train <em>4 to 8 weeks out</em></h4><p>Programs in the APEX app, training content and coaching before every stop.</p></div></div>
+        <div class="step"><div class="n g">02</div><div><h4>Compete <em>9 stops</em></h4><p>Field signage, leaderboard, athlete kits and your footprint, executed by our team.</p></div></div>
+        <div class="step"><div class="n g">03</div><div><h4>Share <em>After every stop</em></h4><p>Recap reels, photo assets and athlete socials that keep you in the feed.</p></div></div>
+        <div class="step"><div class="n g">04</div><div><h4>Stay <em>Between stops</em></h4><p>Results, APEX Scores and the next program keep athletes in the app all year.</p></div></div>
+      </div>
+      <div class="r365"><b class="g">365</b><span>Days a year your brand lives with APEX athletes</span></div>
+    </div>
+    <img class="ph reveal" src="media/field-jump.webp" alt="Athlete competing on the field">
+  </div>
+</section>
+
+<section class="app-sec" id="app">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="eyebrow">The APEX app</div>
+      <h2>Always on.<br><span class="g">Always training.</span></h2>
+      <p class="lead">Athletes don't just show up on competition day. They train for it in the APEX app, following programs built for each stop and coached by APEX coaches like Joe Pedulla.</p>
+      <ul class="app-list">
+        <li><b>A program for every stop.</b> APEX Ready, APEX Miami and APEX Miami Elite, running 4 to 8 weeks at up to 6 sessions a week.</li>
+        <li><b>Scores and results live here.</b> Athletes track their APEX Score and results in the app and on the web.</li>
+        <li><b>Growing with the season.</b> New programs and features roll out through 2027, keeping athletes in the app between stops.</li>
+        <li><b>Room for partners.</b> Product moments, presented programs and offers delivered where athletes train every day.</li>
+      </ul>
+    </div>
+    <div class="phones reveal">
+      <div class="phone"><video autoplay muted loop playsinline preload="metadata" poster="media/app-poster.jpg"><source src="media/app.mp4" type="video/mp4"></video></div>
+      <div class="phone two"><img src="media/app-program.webp" alt="APEX Miami program in the APEX app"></div>
+    </div>
+  </div>
+</section>
+
+<section id="ways">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Ways to partner</div>
+      <h2>Three <span class="g">ways in.</span></h2>
+      <p class="lead">Every level is a season long partnership across all 9 stops, with our team executing on site.</p>
+    </div>
+    <div class="tiers reveal">
+      <div class="tier top">
+        <div class="t">TIER ONE</div><h3>Title Partner</h3>
+        <div class="price g">Let's talk</div><div class="per">one per series · multi year</div>
+        <ul><li>Series naming: [Brand] APEX</li><li>Top billing at every stop and the Championship</li><li>Primary category exclusivity</li><li>Hero footprint and full logistics</li><li>App, content and email integration</li><li>Ambassadors, hospitality and reporting</li></ul>
+        <a class="go" href="#title">See the full package &rarr;</a>
+      </div>
+      <div class="tier">
+        <div class="t">TIER TWO</div><h3>Presenting Partner</h3>
+        <div class="price">$75K+</div><div class="per">per season · one per category</div>
+        <ul><li>APEX presented by [Brand]</li><li>Category exclusivity</li><li>Premium footprint and full logistics</li><li>Email, social and storytelling</li><li>Athlete access</li><li>Prime field branding</li></ul>
+        <a class="go" href="#presenting">See the full package &rarr;</a>
+      </div>
+      <div class="tier">
+        <div class="t">TIER THREE</div><h3>Season Exhibitor</h3>
+        <div class="price">$25K to $75K</div><div class="per">per season · all 9 stops</div>
+        <ul><li>Maximum presence at every stop</li><li>APEX team executes on site</li><li>On field signage</li><li>Own a workout</li><li>Social deliverables</li><li>Value in kind bundling</li></ul>
+        <a class="go" href="#exhibitor">See the full package &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="limebox" id="logistics">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="eyebrow">Season partner logistics</div>
+      <h2>We are your<br><span class="soft">logistics partner.</span></h2>
+      <p class="lead">You bring the brand. We run the tour stop. Our production team plans, moves, builds and supports your activation in every city, so your people can focus on the athletes and fans in front of them.</p>
+      <div class="logi">
+        <div><h4>01 We plan it</h4><p>Footprint, placement and activation plan built with your team before the season starts.</p></div>
+        <div><h4>02 We move it</h4><p>Ship once to our hub. We store your booth and product and travel it with our production to all 9 stops.</p></div>
+        <div><h4>03 We build it</h4><p>Set, branded and stocked before gates open, with our crew on site supporting you all day.</p></div>
+        <div><h4>04 We pack it</h4><p>Broken down, counted and on to the next city, with a recap and photo assets after every stop.</p></div>
+      </div>
+    </div>
+    <img class="ph reveal" src="media/booth.webp" alt="Partner booth activation at APEX">
+  </div>
+</section>
+
+<section id="title" style="background:#050507">
+  <div class="wrap">
+    <div class="thead">
+      <div class="reveal">
+        <div class="eyebrow">Tier one</div>
+        <h2>Title<br><span class="g">Partner</span></h2>
+        <div class="pricehead">One partner. The whole sport.</div>
+        <p class="muted" style="margin-top:8px">One per series · multi year term · logistics included at all 9 stops</p>
+      </div>
+      <p class="lead reveal" style="margin:0">The top of APEX. Your name becomes part of the name of the sport, on every stop, every score and every story for the full season. Open each section to see what is included.</p>
+    </div>
+    <div class="acc-list reveal"><details open><summary><span class="an">01</span><span class="at">Series naming rights<span class="as">Your name becomes part of the name of the sport.</span></span><span class="ac">5 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">&#10003;</div><b>[Brand] APEX</b><span>Series name and logo lockup across every mark, the website, the app, registration and tickets.</span></div><div><div class="q">&#10003;</div><b>Every stop carries your name</b><span>[Brand] APEX Miami, [Brand] APEX Chicago and every city on the 2027 tour.</span></div><div><div class="q">&#10003;</div><b>[Brand] APEX Championship</b><span>Title of the Championship Invitational, the trophy and the podium.</span></div><div><div class="q">&#10003;</div><b>Top billing everywhere</b><span>First position in every press release, announcement and partner listing.</span></div><div><div class="q">&#10003;</div><b>Multi year term</b><span>3 year term with first right of renewal and first look at international expansion.</span></div></div></div></details><details><summary><span class="an">02</span><span class="at">Category rights<span class="as">The only brand of its kind anywhere APEX shows up.</span></span><span class="ac">3 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">&#10003;</div><b>Primary category exclusivity</b><span>Across the series, the app, content and every stop.</span></div><div><div class="q">&#10003;</div><b>Right of first refusal</b><span>On new categories, new events and new markets as APEX grows.</span></div><div><div class="q">&#10003;</div><b>Partner approval</b><span>Input on partners that sit next to your brand on the field.</span></div></div></div></details><details><summary><span class="an">03</span><span class="at">Field, stage and stream<span class="as">The most visible brand in every frame.</span></span><span class="ac">6 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">&#10003;</div><b>Start and finish</b><span>Title branding on the start arch and finish line at all 9 stops.</span></div><div><div class="q">&#10003;</div><b>Scoreboard and live leaderboard</b><span>Title placement on the onsite scoreboard and the live leaderboard stream.</span></div><div><div class="q">&#10003;</div><b>Stage and podium</b><span>Backdrop, podium, medals and awards branding.</span></div><div><div class="q">20<small>PER STOP</small></div><b>Field banners</b><span>Premium positions along every event lane.</span></div><div><div class="q">10<small>PER STOP</small></div><b>PA and MC reads</b><span>Live reads through the full competition day.</span></div><div><div class="q">&#10003;</div><b>Athlete bibs and kits</b><span>Your logo on every competitor bib.</span></div></div></div></details><details><summary><span class="an">04</span><span class="at">Activation footprint<span class="as">The hero space on site, fully run by our team.</span></span><span class="ac">4 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">20x40</div><b>Hero footprint</b><span>First position by the finish and leaderboard at every stop.</span></div><div><div class="q">&#10003;</div><b>Full logistics</b><span>We plan, ship, store, build, support and break down every stop.</span></div><div><div class="q">&#10003;</div><b>Sampling and retail rights</b><span>Sample, sell and capture leads on site.</span></div><div><div class="q">&#10003;</div><b>Championship VIP</b><span>Branded hospitality area at the Championship Invitational.</span></div></div></div></details><details><summary><span class="an">05</span><span class="at">App and 365 presence<span class="as">In the training every day of the year, not only on game day.</span></span><span class="ac">3 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">&#10003;</div><b>App home placement</b><span>Title branding in the APEX app, on results and on APEX Score pages.</span></div><div><div class="q">&#10003;</div><b>Presented training programs</b><span>Your brand on the programs athletes follow for every stop.</span></div><div><div class="q">&#10003;</div><b>Product in the program</b><span>Your product built into the training blocks.</span></div></div></div></details><details><summary><span class="an">06</span><span class="at">Social, content and email<span class="as">A full season of story, built with your team.</span></span><span class="ac">6 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">18</div><b>Collab reels</b><span>Two per stop, posted to APEX and your channels.</span></div><div><div class="q">36</div><b>Collab posts and stories</b><span>Across training blocks and event weeks.</span></div><div><div class="q">&#10003;</div><b>Season docuseries</b><span>A long form content series from first training block to the Championship.</span></div><div><div class="q">6</div><b>Dedicated emails</b><span>Sent to the full owned list of 10K+.</span></div><div><div class="q">&#10003;</div><b>Every registration and results email</b><span>Logo and offer in every send.</span></div><div><div class="q">&#10003;</div><b>Paid amplification</b><span>Paid partnership boosting across the season.</span></div></div></div></details><details><summary><span class="an">07</span><span class="at">Athletes, hospitality and reporting<span class="as">Bring your people and see exactly what you got.</span></span><span class="ac">5 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">10</div><b>Ambassador athletes</b><span>Signed APEX athletes representing your brand all season.</span></div><div><div class="q">300+</div><b>Athlete kits per stop</b><span>Product in every athlete and staff kit.</span></div><div><div class="q">20</div><b>VIP passes per stop</b><span>Plus 40 at the Championship Invitational.</span></div><div><div class="q">&#10003;</div><b>Podium presentation</b><span>Your executive presents at the Championship awards.</span></div><div><div class="q">&#10003;</div><b>Recaps and season report</b><span>Reach, impressions, sampling and leads after every stop and at season end.</span></div></div></div></details></div>
+  </div>
+</section>
+
+<section class="light" id="presenting">
+  <div class="wrap">
+    <div class="thead">
+      <div class="reveal">
+        <div class="eyebrow">Tier two</div>
+        <h2>Presenting<br><span class="g">Partner</span></h2>
+        <div class="pricehead">$75,000+ per season</div>
+        <p class="muted" style="margin-top:8px">One per category · 2 to 3 year terms · logistics included at all 9 stops</p>
+      </div>
+      <p class="lead reveal" style="margin:0">Second only to Title. Your brand presents the series, owns its category and tells the season's story with us. Open each section to see what is included.</p>
+    </div>
+    <div class="acc-list reveal"><details open><summary><span class="an">01</span><span class="at">Presenting rights<span class="as">Second only to Title on every mark and every stop.</span></span><span class="ac">5 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">&#10003;</div><b>APEX presented by [Brand]</b><span>Lockup on the series logo, website, registration and tickets.</span></div><div><div class="q">&#10003;</div><b>Championship presented by</b><span>Presenting position on the Championship Invitational.</span></div><div><div class="q">&#10003;</div><b>Category exclusivity</b><span>No competing brand in your category at any stop.</span></div><div><div class="q">&#10003;</div><b>Founding Partner status</b><span>2 to 3 year term with first look at international expansion.</span></div><div><div class="q">&#10003;</div><b>Press and announcements</b><span>Named in every release, media alert and season announcement.</span></div></div></div></details><details><summary><span class="an">02</span><span class="at">Signage and field branding<span class="as">Prime visibility in every photo, reel and stream frame.</span></span><span class="ac">5 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">&#10003;</div><b>Start arch and finish line</b><span>Presenting position at all 9 stops.</span></div><div><div class="q">&#10003;</div><b>Leaderboard and scoreboard</b><span>Logo on the live leaderboard, onsite scoreboard and stream.</span></div><div><div class="q">&#10003;</div><b>Stage and podium</b><span>Backdrop and awards branding at every stop.</span></div><div><div class="q">10<small>PER STOP</small></div><b>Field banners</b><span>Placed along the track and event lanes.</span></div><div><div class="q">6<small>PER STOP</small></div><b>PA and MC mentions</b><span>Live reads throughout the competition day.</span></div></div></div></details><details><summary><span class="an">03</span><span class="at">Booth and activation space<span class="as">A premium footprint on site, executed by our team.</span></span><span class="ac">4 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">20x20</div><b>Premium footprint</b><span>Prime position by the finish and leaderboard at every stop.</span></div><div><div class="q">&#10003;</div><b>Full logistics</b><span>We plan, ship, store, build, support and break down.</span></div><div><div class="q">&#10003;</div><b>Sampling and retail rights</b><span>Sample, sell and capture leads on site.</span></div><div><div class="q">1</div><b>Own an event</b><span>One of the seven events named Powered by [Brand].</span></div></div></div></details><details><summary><span class="an">04</span><span class="at">Social and reels<span class="as">Content built with your brand, not just tagged at the end.</span></span><span class="ac">4 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">9</div><b>Collab reels</b><span>One per stop, posted to APEX and your channels.</span></div><div><div class="q">18</div><b>Collab posts and stories</b><span>Spread across training blocks and event weeks.</span></div><div><div class="q">&#10003;</div><b>Recap reel placement</b><span>Logo and mention in every event recap.</span></div><div><div class="q">&#10003;</div><b>Paid amplification</b><span>Paid partnership boosting on Instagram.</span></div></div></div></details><details><summary><span class="an">05</span><span class="at">Email and app<span class="as">Direct access to an owned audience, all year.</span></span><span class="ac">3 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">4</div><b>Dedicated partner emails</b><span>Your story and offer, sent to the 10K+ list.</span></div><div><div class="q">&#10003;</div><b>Registration and results emails</b><span>Logo and offer in every confirmation and results send.</span></div><div><div class="q">&#10003;</div><b>Product in the training program</b><span>Inside APEX programming and the app.</span></div></div></div></details><details><summary><span class="an">06</span><span class="at">Content and storytelling<span class="as">A season long story from first training block to podium.</span></span><span class="ac">2 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">6</div><b>Part content series</b><span>Built with your team around athletes and your product.</span></div><div><div class="q">&#10003;</div><b>Asset library</b><span>Photo and video from every stop, licensed for your channels.</span></div></div></div></details><details><summary><span class="an">07</span><span class="at">Athletes, hospitality and reporting<span class="as">Bring your team and see exactly what you got.</span></span><span class="ac">4 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">5</div><b>Ambassador athletes</b><span>Signed APEX athletes representing your brand all season.</span></div><div><div class="q">300+</div><b>Athlete kits per stop</b><span>Product in every athlete and staff kit.</span></div><div><div class="q">10</div><b>VIP passes per stop</b><span>Plus 20 at the Championship Invitational.</span></div><div><div class="q">&#10003;</div><b>Stop recaps and season report</b><span>Reach, impressions, sampling counts and assets.</span></div></div></div></details></div>
+  </div>
+</section>
+
+<section id="exhibitor" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="thead">
+      <div class="reveal">
+        <div class="eyebrow">Tier three</div>
+        <h2>Season<br><span class="g">Exhibitor</span></h2>
+        <div class="pricehead">$25,000 to $75,000 per season</div>
+        <p class="muted" style="margin-top:8px">All 9 stops · scaled by footprint, signage and the assets you own</p>
+      </div>
+      <div class="defn reveal"><b>Who it's for</b>Brands that want maximum impact across every stop and rely on the APEX team to execute on site. Social deliverables are included. Long form content stays with Title and Presenting. Value in kind can be bundled into the event build.</div>
+    </div>
+    <div class="acc-list reveal"><details open><summary><span class="an">01</span><span class="at">On site at every stop<span class="as">Maximum presence across the tour, executed by the APEX team.</span></span><span class="ac">4 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">10x10<small>TO 10x30</small></div><b>Footprint at all 9 stops</b><span>Size and position scale with your package.</span></div><div><div class="q">&#10003;</div><b>APEX runs your stop</b><span>We ship, store, build, staff support and break down. You show up.</span></div><div><div class="q">&#10003;</div><b>Site map and partner wall</b><span>Listed at every stop.</span></div><div><div class="q">&#10003;</div><b>Sampling and retail rights</b><span>Sample, sell and capture leads on site.</span></div></div></div></details><details><summary><span class="an">02</span><span class="at">On field signage<span class="as">Your brand where the competition happens.</span></span><span class="ac">3 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">2<small>TO 6</small></div><b>Field banners per stop</b><span>On the event lanes, scaled to your package.</span></div><div><div class="q">&#10003;</div><b>Scoreboard and leaderboard</b><span>Logo placement at the upper end of the range.</span></div><div><div class="q">&#10003;</div><b>PA and MC mentions</b><span>Live reads during the competition day.</span></div></div></div></details><details><summary><span class="an">03</span><span class="at">Workout ownership<span class="as">Own one of the moments on the field.</span></span><span class="ac">3 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">&#10003;</div><b>Powered by [Brand]</b><span>Name one of the ownable assets: registration, warm up or an event.</span></div><div><div class="q">&#10003;</div><b>Branded event lane</b><span>Signage, leaderboard mention and MC reads for that event.</span></div><div><div class="q">&#10003;</div><b>Recap feature</b><span>Your event called out in every stop recap.</span></div></div></div></details><details><summary><span class="an">04</span><span class="at">Social deliverables<span class="as">In the feed all season. Long form content stays with Title and Presenting.</span></span><span class="ac">3 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">&#10003;</div><b>Tagged in every recap</b><span>Every stop, all season.</span></div><div><div class="q">2<small>TO 6</small></div><b>Collab posts per season</b><span>Scaled to your package.</span></div><div><div class="q">&#10003;</div><b>Photo and video assets</b><span>Pulled from every stop for your channels.</span></div></div></div></details><details><summary><span class="an">05</span><span class="at">Value in kind<span class="as">Bundle product and support into the event build.</span></span><span class="ac">4 items</span><span class="ai"></span></summary><div class="acc-body"><div class="ent"><div><div class="q">300+</div><b>Athlete kits</b><span>Your product in every athlete kit at every stop.</span></div><div><div class="q">&#10003;</div><b>CPG for athletes and fans</b><span>Hydration, nutrition and recovery on the field.</span></div><div><div class="q">&#10003;</div><b>Volunteer and staff</b><span>Apparel, product or donations for the crew that runs the day.</span></div><div><div class="q">&#10003;</div><b>Event production</b><span>Equipment and production items that power the competition.</span></div></div></div></details></div>
+  </div>
+</section>
+
+<section class="light" id="assets">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Ownable assets</div>
+      <h2>Own a moment<br><span class="g">on the field.</span></h2>
+      <p class="lead">Every stop runs on the same nine moments. Partners can own one or more for the full season, named Powered by [Brand] on signage, the leaderboard, MC reads and every recap.</p>
+    </div>
+    <div class="assets reveal">
+<article class="asset a-exp"><div class="ah"><span class="expdot"></span><span class="tag">Experience</span><span class="num">01</span></div><h4>Registration</h4><p>First touch of the day. Check in, bibs and athlete kits.</p><div class="pb">Powered by [Brand]</div></article>
+<article class="asset a-exp"><div class="ah"><span class="expdot"></span><span class="tag">Experience</span><span class="num">02</span></div><h4>Warm Up</h4><p>The zone every athlete moves through before they compete.</p><div class="pb">Powered by [Brand]</div></article>
+<article class="asset a-speed"><div class="ah"><img src="media/cat-speed.png" alt=""><span class="tag">Speed</span><span class="num">03</span></div><h4>Fast 40</h4><p>The 40 yard sprint that opens the day.</p><div class="pb">Powered by [Brand]</div></article>
+<article class="asset a-power"><div class="ah"><img src="media/cat-power.png" alt=""><span class="tag">Power</span><span class="num">04</span></div><h4>Med Ball Throw</h4><p>Explosive upper body power, measured for distance.</p><div class="pb">Powered by [Brand]</div></article>
+<article class="asset a-power"><div class="ah"><img src="media/cat-power.png" alt=""><span class="tag">Power</span><span class="num">05</span></div><h4>Broad Jump</h4><p>Standing broad jump. Home of a Guinness World Records attempt in Miami.</p><div class="pb">Powered by [Brand]</div></article>
+<article class="asset a-power"><div class="ah"><img src="media/cat-power.png" alt=""><span class="tag">Power</span><span class="num">06</span></div><h4>Vertical Jump</h4><p>Pure lower body power, measured to the inch.</p><div class="pb">Powered by [Brand]</div></article>
+<article class="asset a-strength"><div class="ah"><img src="media/cat-strength.png" alt=""><span class="tag">Strength</span><span class="num">07</span></div><h4>Deadlift</h4><p>Max strength off the floor.</p><div class="pb">Powered by [Brand]</div></article>
+<article class="asset a-strength"><div class="ah"><img src="media/cat-strength.png" alt=""><span class="tag">Strength</span><span class="num">08</span></div><h4>Bench Press</h4><p>Upper body strength under the bar.</p><div class="pb">Powered by [Brand]</div></article>
+<article class="asset a-endurance"><div class="ah"><img src="media/cat-endurance.png" alt=""><span class="tag">Endurance</span><span class="num">09</span></div><h4>Mile Run</h4><p>The closer. One mile to finish the APEX Score.</p><div class="pb">Powered by [Brand]</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="next">
+  <div class="wrap reveal">
+    <div class="eyebrow">Join us</div>
+    <h2 style="font-size:clamp(56px,9vw,140px)">Let's build<br><span class="g">something big.</span></h2>
+    <p class="lead">Tell us which stop, which event or which athlete, and help us grow the sport of athleticism.</p>
+    <div class="contact">
+      <a class="btn" href="mailto:partnerships@apexathleteofficial.com?subject=APEX%202027%20Partnership">Start the conversation</a>
+      <div class="who"><b>Point of contact</b>Tatum Brandt · Brand &amp; Creative Director<br>partnerships@apexathleteofficial.com</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo">APEX</span>
+    <span>2027 season · Miami · Austin · Atlanta · DMV · Chicago · Boston · Los Angeles · Dallas · Championship, Austin</span>
+    <span>@apexathlete.official</span>
+  </div>
+</footer>
+
+<script>
+// Gate (demo passcode). Replace with server side auth when hosted.
+const PASS_HASH = '627d343cf4974e5731bca30b597312ce03258f8ccacb3b688c6852f90e67ed62'; // SHA-256 of the passcode (uppercase)
+const sha = async t => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)))].map(b => b.toString(16).padStart(2, '0')).join('');
+const gate = document.getElementById('gate');
+let unlocked = false;
+try { unlocked = sessionStorage.getItem('apexGate') === '1'; } catch (e) {}
+if (unlocked) gate.classList.add('hide'); else document.body.style.overflow = 'hidden';
+document.getElementById('gateForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  if (await sha(document.getElementById('gCode').value.trim().toUpperCase()) === PASS_HASH) {
+    try { sessionStorage.setItem('apexGate', '1'); } catch (e) {}
+    gate.classList.add('hide'); document.body.style.overflow = '';
+    document.querySelectorAll('video').forEach(v => v.play && v.play().catch(() => {}));
+  } else {
+    document.getElementById('gErr').textContent = 'That passcode did not match. Check your invite email.';
+  }
+});
+
+// Reveal on scroll + count up
+const countUp = el => {
+  const end = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+  const t0 = performance.now(), dur = 1400;
+  const tick = t => {
+    const p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+    el.textContent = pre + (end * e).toFixed(dec) + suf;
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+};
+const io = new IntersectionObserver(entries => entries.forEach(en => {
+  if (!en.isIntersecting) return;
+  en.target.classList.add('in');
+  en.target.querySelectorAll('[data-count]').forEach(countUp);
+  if (en.target.dataset.count) countUp(en.target);
+  io.unobserve(en.target);
+}), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+</script>
+</body>
+</html>
